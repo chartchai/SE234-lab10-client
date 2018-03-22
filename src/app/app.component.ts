@@ -21,11 +21,11 @@ export class AppComponent implements OnInit {
   }
 
   getGrade(score: number) {
-    // this.gradeService.getGradeFromScore(score)
-    //   .subscribe(result => {
-    //     this.grade = result.data.score;
-    //     this.changeOuputClass();
-    //   });
+    this.gradeService.getGradeFromScore(score)
+      .subscribe(result => {
+        this.grade = result.data.score;
+        this.changeOuputClass();
+      });
   }
 
   changeOuputClass() {

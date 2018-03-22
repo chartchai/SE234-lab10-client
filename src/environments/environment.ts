@@ -6,8 +6,6 @@
 export const environment = {
   production: false,
   serverUri: 'http://localhost:8080',
-  graphqlUri: 'http://localhost:8080/graphql',
-  uploadUri: 'http://localhost:8080/upload',
-  authUri: 'http://localhost:8080/auth'
+  graphqlUri: 'http://localhost:8080/graphql'
 
 };
