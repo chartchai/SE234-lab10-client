@@ -3,7 +3,7 @@ import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
 
 const getGradeFromScore = gql`
-  query getGradeFromScore($score: Int!) {
+  query getGradeFromScore($score: Float!) {
     getGradeFromScore(score: $score) {
       grade
     }

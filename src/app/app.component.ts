@@ -7,28 +7,41 @@ import { GradeService } from './service/grade.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  score: number;
+  score: string;
   grade: string;
   outputClass: string;
+  showOutput: boolean;
   constructor(private gradeService: GradeService) {
 
   }
 
   ngOnInit() {
-    this.score = 0;
-    this.grade = 'A+';
-    this.changeOuputClass();
+    this.score = '';
+    this.grade = '';
+    this.changeOutputClass();
+    this.showOutput = false;
   }
 
-  getGrade(score: number) {
-    this.gradeService.getGradeFromScore(score)
-      .subscribe(result => {
-        this.grade = result.data.score;
-        this.changeOuputClass();
-      });
+  getGrade() {
+    if (this.isNumeric(this.score)) {
+      this.gradeService.getGradeFromScore(+this.score)
+        .subscribe(result => {
+          this.showOutput = true;
+          this.grade = result.data.getGradeFromScore.grade;
+          this.changeOutputClass();
+          
+        });
+    } else {
+      this.showOutput = false;
+      alert('Please enter number');
+    }
   }
 
-  changeOuputClass() {
+
+  isNumeric(value: any): boolean {
+    return !isNaN(value - parseFloat(value));
+  }
+  changeOutputClass() {
     switch (this.grade) {
       case 'F': this.outputClass = 'btn btn-danger btn-lg col-md-3';
         break;

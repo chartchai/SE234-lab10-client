@@ -13,12 +13,12 @@
           </div>
           <div class="form-group mx-sm-3 mb-2">
             <label for="inputPassword2" class="sr-only">Password</label>
-            <input [(ngModel)]=score type="text" class="form-control" id="inputPassword2" placeholder="Score...">
+            <input [(ngModel)]="score" name="score" type="text" class="form-control" id="score" placeholder="Score...">
           </div>
-          <button type="submit" class="btn btn-primary mb-2">Submit</button>
+          <button type="submit" class="btn btn-primary mb-2" (click)="getGrade()">Submit</button>
         </form>
   </div>
-  <div *ngIf="grade!=''" class="col-md-6">
+  <div *ngIf="showOutput" class="col-md-6">
     You grade is 
     <button type="button" [class]=outputClass>{{grade}}</button>
   </div>
