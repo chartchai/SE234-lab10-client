@@ -1,11 +1,18 @@
 language: node_js
 sudo: required
+cache:
+  directories:
+    - node_modules
 before_install:
 - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
 install:
+- npm install
+- npm run ng-deploy
+- ls -l
+script: 
 - docker build -t dto80/se234-lab10-client .
 - docker push dto80/se234-lab10-client
-script: true
+
 service: docker
 env:
   global:
