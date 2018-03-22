@@ -29,7 +29,6 @@ export class AppComponent implements OnInit {
           this.showOutput = true;
           this.grade = result.data.getGradeFromScore.grade;
           this.changeOutputClass();
-          
         });
     } else {
       this.showOutput = false;
